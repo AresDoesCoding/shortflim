@@ -1,0 +1,43 @@
+/* Glitch Effect */
+.glitch {
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin: 10px;
+    padding: 10px;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.7);
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Hide the glitch text by default */
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    color: white;
+    background: transparent;
+    visibility: hidden; /* Hide by default */
+}
+
+/* Show the effect only when hovered */
+.glitch:hover::before {
+    visibility: visible;
+    left: -2px;
+    text-shadow: -2px 0 red;
+    animation: glitch-anim 0.3s infinite linear alternate-reverse;
+}
+
+.glitch:hover::after {
+    visibility: visible;
+    left: 2px;
+    text-shadow: 2px 0 cyan;
+    animation: glitch-anim 0.3s infinite linear alternate-reverse;
+}
